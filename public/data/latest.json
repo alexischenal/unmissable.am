@@ -24,6 +24,12 @@
       "note": 10
     },
     {
+      "away": "SAC",
+      "home": "MEM",
+      "tipOff": "2026-11-01T00:00:00Z",
+      "note": 9
+    },
+    {
       "away": "ATL",
       "home": "NOP",
       "tipOff": "2026-10-31T23:00:00Z",
@@ -34,11 +40,6 @@
       "home": "UTA",
       "tipOff": "2026-10-31T19:00:00Z",
       "note": 1
-    },
-    {
-      "away": "SAC",
-      "home": "MEM",
-      "tipOff": "2026-11-01T00:00:00Z"
     },
     {
       "away": "OKC",
