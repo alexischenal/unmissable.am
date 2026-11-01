@@ -1,6 +1,15 @@
 // src/components/About.tsx
 // The "How it works" page: where the percentages come from. Ingredients only, never the settings.
 
+// The card's flame, at text size: read as "flame" by screen readers
+function Flame() {
+  return (
+    <span className="article__flame" role="img" aria-label="flame">
+      <svg className="article__flame-icon" aria-hidden="true"><use href="/sprite.svg#flame" /></svg>
+    </span>
+  );
+}
+
 export function About() {
   return (
     <article className="article">
@@ -18,9 +27,7 @@ export function About() {
         {/* "a", the flame and "!" stay on the same line */}
         <span className="article__nowrap">
           a{' '}
-          <span className="article__flame" role="img" aria-label="flame">
-            <svg className="article__flame-icon" aria-hidden="true"><use href="/sprite.svg#flame" /></svg>
-          </span>
+          <Flame />
           !
         </span>
         <br />
@@ -41,13 +48,17 @@ export function About() {
         here before picking a replay.
       </p>
 
-      <h2 className="article__subtitle">Good to know</h2>
+      <h2 className="article__subtitle">
+        Good to know – the <Flame />
+      </h2>
+      <p className="article__text">
+        A flame next to a percentage means somebody had a big night. Tap it to see how big.
+      </p>
+
+      <h2 className="article__subtitle">Good to know – the math</h2>
       <p className="article__text">
         The math has no ceiling: a crazy night keeps adding points, because nobody should put a limit on
         what players can do. The display stops at 100%, which simply means unmissable.
-      </p>
-      <p className="article__text">
-        A flame next to a percentage means somebody had a big night. Tap it to see how big.
       </p>
       <p className="article__text article__promise">You'll know what to watch. You'll never know who won.</p>
 
