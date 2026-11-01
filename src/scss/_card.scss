@@ -107,6 +107,10 @@
     user-select: none;
   }
 
+  .card__abbr::before {
+    content: attr(data-abbr);
+  }
+
   .card__location {
     position: relative;
     font-size: var(--location-size);

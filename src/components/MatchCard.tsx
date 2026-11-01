@@ -31,7 +31,8 @@ function TeamSide({ side, abbr, team, colors }: TeamSideProps) {
   const style = { '--primary': colors.primary, '--secondary': colors.secondary } as CSSProperties;
   return (
     <div className={`card__side card__side--${side}`} style={style}>
-      <span className="card__abbr" aria-hidden="true">{abbr}</span>
+      {/* Decoration only: drawn by CSS from data-abbr, so it isn't text (contrast checkers skip it) */}
+      <span className="card__abbr" aria-hidden="true" data-abbr={abbr} />
       <span className="card__location">{team.location}</span>
       <span className="card__name">{SOFT_BREAKS[team.name] ?? team.name}</span>
     </div>

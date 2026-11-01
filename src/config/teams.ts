@@ -12,7 +12,7 @@ export type Team = {
 };
 
 export const TEAMS: Record<string, Team> = {
-  ATL: { location: 'Atlanta',       name: 'Hawks',         primary: '#E03A3E', secondary: '#C1D32F' },
+  ATL: { location: 'Atlanta',       name: 'Hawks',         primary: '#D93A39', secondary: '#C1D32F' },
   BOS: { location: 'Boston',        name: 'Celtics',       primary: '#007A33', secondary: '#BA9653' },
   BKN: { location: 'Brooklyn',      name: 'Nets',          primary: '#000000', secondary: '#FFFFFF' },
   CHA: { location: 'Charlotte',     name: 'Hornets',       primary: '#1D1160', secondary: '#00788C' },
@@ -36,7 +36,7 @@ export const TEAMS: Record<string, Team> = {
   ORL: { location: 'Orlando',       name: 'Magic',         primary: '#0077C0', secondary: '#C4CED4' },
   PHI: { location: 'Philadelphia',  name: '76ers',         primary: '#006BB6', secondary: '#ED174C' },
   PHX: { location: 'Phoenix',       name: 'Suns',          primary: '#1D1160', secondary: '#E56020' },
-  POR: { location: 'Portland',      name: 'Trail Blazers', primary: '#E03A3E', secondary: '#000000' },
+  POR: { location: 'Portland',      name: 'Trail Blazers', primary: '#D93A39', secondary: '#000000' },
   SAC: { location: 'Sacramento',    name: 'Kings',         primary: '#5A2D81', secondary: '#63727A' },
   SAS: { location: 'San Antonio',   name: 'Spurs',         primary: '#000000', secondary: '#C4CED4' },
   TOR: { location: 'Toronto',       name: 'Raptors',       primary: '#CE1141', secondary: '#000000' },
