@@ -44,8 +44,8 @@ export function About() {
       <p className="article__text">
         A good night barely counts. A huge one sends the rating flying.
         <br />
-        Long story short: monster performances in close games are unmissable. You won't miss those if you check
-        here before picking a replay.
+        Long story short: monster performances in close games are unmissable. Check here before picking a
+        replay.
       </p>
 
       <h2 className="article__subtitle">
