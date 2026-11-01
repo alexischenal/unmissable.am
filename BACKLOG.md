@@ -83,7 +83,8 @@ and milestones (context, not play), fights and ejections.
     "?" now only shows on games with a performance. Nights rated earlier keep a `scenario` key in their JSON:
     ignored by the cards. The secret's `why.scenarioPoints` and `why.scenarioSwings` are no longer read.
   - **A flame instead of the "?"** (October 31). The button now only means "a big night", so it says so; a bigger
-    pastille at every size. The pastille is on fire like the Crazy chip (gradient and glow, the flame itself stays still), the same
+    pastille at every size. The pastille is on fire: the hot core of its gradient moves along the bottom (CSS `@property`),
+    the glow and the flame stay still; still pastille on older browsers and with reduced motion. The same
     for Big, Huge and Crazy: the level only shows once opened. No hover effect: the fire stays as it is. One line in Good
     to know (How it works) explains it.
 
