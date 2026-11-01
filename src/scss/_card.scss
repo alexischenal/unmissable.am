@@ -227,70 +227,70 @@
 @property --fire-y {
   syntax: "<percentage>";
   inherits: false;
-  initial-value: 80%;
+  initial-value: 92%;
 }
 
 @property --fire-mid {
   syntax: "<percentage>";
   inherits: false;
-  initial-value: 50%;
+  initial-value: 52%;
 }
 
 @property --fire-core {
   syntax: "<percentage>";
   inherits: false;
-  initial-value: 15%;
+  initial-value: 16%;
 }
 
 @keyframes why-fire {
   0%,
   100% {
     --fire-x: 50%;
-    --fire-y: 82%;
-    --fire-mid: 50%;
-    --fire-core: 15%;
+    --fire-y: 92%;
+    --fire-mid: 52%;
+    --fire-core: 16%;
   }
 
   12% {
-    --fire-x: 42%;
-    --fire-y: 68%;
+    --fire-x: 43%;
+    --fire-y: 86%;
     --fire-mid: 60%;
     --fire-core: 24%;
   }
 
   27% {
     --fire-x: 57%;
-    --fire-y: 86%;
-    --fire-mid: 42%;
-    --fire-core: 10%;
+    --fire-y: 96%;
+    --fire-mid: 46%;
+    --fire-core: 12%;
   }
 
   41% {
     --fire-x: 46%;
-    --fire-y: 64%;
+    --fire-y: 84%;
     --fire-mid: 62%;
-    --fire-core: 28%;
+    --fire-core: 26%;
   }
 
   55% {
     --fire-x: 55%;
-    --fire-y: 80%;
-    --fire-mid: 46%;
-    --fire-core: 14%;
+    --fire-y: 94%;
+    --fire-mid: 50%;
+    --fire-core: 15%;
   }
 
   68% {
-    --fire-x: 40%;
-    --fire-y: 72%;
+    --fire-x: 41%;
+    --fire-y: 88%;
     --fire-mid: 58%;
     --fire-core: 22%;
   }
 
   83% {
     --fire-x: 58%;
-    --fire-y: 66%;
-    --fire-mid: 52%;
-    --fire-core: 26%;
+    --fire-y: 85%;
+    --fire-mid: 55%;
+    --fire-core: 25%;
   }
 }
 
