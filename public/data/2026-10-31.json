@@ -3,15 +3,16 @@
   "date": "2026-10-31",
   "games": [
     {
+      "away": "PHI",
+      "home": "CHA",
+      "tipOff": "2026-10-31T22:00:00Z",
+      "note": 71
+    },
+    {
       "away": "POR",
       "home": "UTA",
       "tipOff": "2026-10-31T19:00:00Z",
       "note": 1
-    },
-    {
-      "away": "PHI",
-      "home": "CHA",
-      "tipOff": "2026-10-31T22:00:00Z"
     },
     {
       "away": "ATL",
