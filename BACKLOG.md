@@ -507,6 +507,55 @@ What it would enable:
 
 To do after the box score is validated (October 21) and the current algorithm is calibrated on a few nights.
 
+## Team colors — how they work
+
+Every card is split in two by a diagonal: the away team's color on the left, the home team's on the right, always
+in that order, whatever the result. Thirty teams, 870 possible home/away pairings, colors chosen by the franchises
+over decades without ever thinking of each other: Philadelphia and New York share the same blue, Atlanta and
+Portland the same red. The rules below make every pairing work, visually and for accessibility, and the tests
+check all 870.
+
+### The visual side
+
+- **Two colors per team** (`src/config/teams.ts`): a primary and a secondary. By default, each half of the card
+  is the team's primary, and its secondary is the thin vertical stripe on the outer edge (an inset
+  `box-shadow`). React passes them to the card as custom properties (`--primary`, `--secondary`): they're only
+  known at render time, so Sass can't hold them.
+- **The diagonal** is a `clip-path` on each half, its angle tied to the card's height (`--diag`), so it keeps
+  the same slant from phone to desktop.
+- **The giant abbreviation** in the background of each half (SAS, DEN…) is the same white as the names at 12%
+  opacity: a watermark that takes the team's color, never a color of its own.
+- **When two teams look alike** (`src/lib/colors.ts`, `cardColors`), the diagonal would disappear and the card
+  would read as one team. "Alike" is measured the way the eye sees it, not on the hex codes: both colors are
+  converted to CIE Lab, a color space where distances match perception, and compared with ΔE (CIE76).
+  Under 25, they're too close (~2 is barely visible, 50+ very different). Then, in this order:
+  1. the **home team switches to its secondary** color, if it's far enough from the other team and white text
+     stays readable on it;
+  2. otherwise the **away team** does (Portland goes black in Atlanta: the Hawks' lime green is too light);
+  3. otherwise the **home color gets a shade**: mixed with black (45, 60, then 75%), or with white (25, 35,
+     45%) for colors already very dark, until it stands apart.
+  The team that switches keeps its identity: its stripe takes its primary. The order is fixed, so the same
+  pairing always gets the same colors.
+
+### The accessibility side
+
+- **Contrast is computed, not eyeballed**: the WCAG formula (relative luminance of the color against white,
+  `contrastWithWhite`). The team names are large text, but the city above them is small (12 to 19 px), so every
+  background must reach **4.5:1**, the AA level for normal text (`MIN_CONTRAST`).
+- **The official colors don't all pass.** The Hawks' and Blazers' red (`#E03A3E`) gave 4.34:1 to "ATLANTA" and
+  "PORTLAND". It became `#D93A39` (4.55:1): the closest red that passes while staying apart from Miami's red
+  (ΔE 2.8 from the original, invisible). Every other primary already passes; the closest call is Memphis (4.54).
+- **Secondary colors used as a background** are darkened just enough when needed, up to 20% (the Sixers' red
+  facing the Knicks, the Thunder's orange-red, the Suns' orange). A secondary that can't get there (gold, silver,
+  lime) is simply never used as a background.
+- **The watermark isn't text.** It's drawn by CSS (`::before { content: attr(data-abbr) }`) on an `aria-hidden`
+  span: decoration for the eye, nothing for screen readers or contrast checkers. Before, its 12% opacity
+  counted as 14 contrast errors on a single night.
+- **Screen readers never see colors at all**: each card has one label ("1. San Antonio Spurs at Denver Nuggets,
+  rated 100 out of 100"), and the color is never the only carrier of an information.
+- **Checked**: `colors.test.ts` runs the 870 pairings (two distinct halves, white text at 4.5:1 on both) and
+  every team's own color; an axe-core audit finds no issue on the four pages at 390 and 1440 px (November 1).
+
 ## Quality
 
 - Unit tests for `src/lib/scoring.ts` (the April 4, 2026 fixtures are ready-made test cases).
