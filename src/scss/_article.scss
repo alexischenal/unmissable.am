@@ -37,6 +37,28 @@
     text-underline-offset: 0.15em;
   }
 
+  .article__nowrap {
+    white-space: nowrap;
+  }
+
+  .article__flame {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.35em;
+    height: 1.35em;
+    margin: 0 0.1em;
+    vertical-align: -0.18em;
+    box-shadow: 0 0 5px 1px rgba(255, 140, 26, 0.6);
+    @include fire-pastille;
+  }
+
+  .article__flame-icon {
+    width: 72%;
+    height: 72%;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+  }
+
   .article__promise {
     margin-top: 28px;
     font-weight: 600;

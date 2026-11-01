@@ -42,3 +42,14 @@
     }
   }
 }
+
+@mixin fire-pastille {
+  border-radius: 50%;
+  background: radial-gradient(circle at var(--fire-x) var(--fire-y), #fff1a8 0%, #ffcf4a var(--fire-core), #ff7a1a var(--fire-mid), #c8241b 100%);
+  color: $white;
+  animation: why-fire 1.7s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
