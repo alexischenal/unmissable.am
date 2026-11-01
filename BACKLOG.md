@@ -536,6 +536,23 @@ To do after the box score is validated (October 21) and the current algorithm is
   - Even lighter option: GoatCounter can count with a tiny image instead of JavaScript.
   - Alternatives considered: Cloudflare Web Analytics (needs a Cloudflare account), Umami (more to set up).
 
+## Optimization
+
+- **The "why" strip inside the card's `<article>`.** Today it sits next to it, in the same `<li>`: the card was
+  designed as a closed block, the "why" came later, and the strip has to run full width under it. `aria-controls`
+  links the two, so nothing is broken, but the clean version has the article hold everything:
+  `article.card` > `div.card__body` (the two sides, the note, the flame) + `div.card__why`. Moves the card's size
+  and diagonal clip from `.card` to `.card__body`, and the cursor selector (`.card--why-open + .card__why`).
+  Check visually from 320 to 1440 px.
+- **SCSS: design tokens as CSS custom properties.** Colors, fonts, radius and stripes are Sass variables (`$bg`,
+  `$ink`, `$font-text`…), while the card already runs on custom properties (`--card-h`, `--note-w`, the team colors
+  set by React). One system instead of two:
+  - move the tokens to `:root` (`--color-bg`, `--color-ink`, `--font-text`…): visible and editable in the
+    browser's dev tools, readable from React, ready for a theme;
+  - the fire colors written by hand (`#ffcf4a`, `#ff7a1a`, `#c8241b`…) become tokens too;
+  - the breakpoints stay Sass variables: custom properties don't work inside `@media` queries;
+  - then `_variables.scss` only keeps the breakpoints.
+
 ## "Next night" page — details
 
 Now high priority (see "Next up"). The site could also become the place to check
