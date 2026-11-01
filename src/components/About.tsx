@@ -53,8 +53,7 @@ export function About() {
       </h2>
       <p className="article__text">
         A flame next to a percentage means somebody cooked. Tap it to see how hot: a big, a huge or a crazy
-        performance. And when several players cook in the same game, you'll see each of them. That's all it
-        says, no spoilers.
+        performance, sometimes more than one! No spoilers.
       </p>
 
       <h2 className="article__subtitle">Good to know – the math</h2>
