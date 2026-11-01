@@ -9,16 +9,26 @@ test('different colors: nothing changes', () => {
   assert.deepEqual(colors, { away: TEAMS.SAS, home: TEAMS.DEN });
 });
 
+// Their red, a touch darker so the small white city name stays readable
+const sixersRed = (hex: string) =>
+  colorDistance(hex, TEAMS.PHI!.secondary) < 10 && contrastWithWhite(hex) >= MIN_CONTRAST;
+
 test("Philadelphia at New York (same blue): the Knicks' orange is too light, so the Sixers go red", () => {
   const { away, home } = cardColors(TEAMS.PHI!, TEAMS.NYK!);
   assert.equal(home.primary, TEAMS.NYK!.primary);
-  assert.equal(away.primary, TEAMS.PHI!.secondary);
+  assert.ok(sixersRed(away.primary), away.primary);
 });
 
 test('New York at Philadelphia: the home team switches first, the Sixers go red', () => {
   const { away, home } = cardColors(TEAMS.NYK!, TEAMS.PHI!);
   assert.equal(away.primary, TEAMS.NYK!.primary);
-  assert.equal(home.primary, TEAMS.PHI!.secondary);
+  assert.ok(sixersRed(home.primary), home.primary);
+});
+
+test("every team's own color keeps small white text readable (WCAG AA, 4.5:1)", () => {
+  for (const [id, team] of Object.entries(TEAMS)) {
+    assert.ok(contrastWithWhite(team.primary) >= MIN_CONTRAST, `${id}: ${contrastWithWhite(team.primary).toFixed(2)}`);
+  }
 });
 
 test('every one of the 870 home/away pairs ends up with two distinct, readable halves', () => {
@@ -28,10 +38,7 @@ test('every one of the 870 home/away pairs ends up with two distinct, readable h
     const { away, home } = cardColors(TEAMS[a]!, TEAMS[h]!);
     assert.ok(colorDistance(away.primary, home.primary) >= MIN_DISTANCE, `${a} @ ${h}: too close`);
     for (const c of [away, home]) {
-      const original = c === away ? TEAMS[a]! : TEAMS[h]!;
-      if (c.primary !== original.primary) {
-        assert.ok(contrastWithWhite(c.primary) >= MIN_CONTRAST, `${a} @ ${h}: white text unreadable`);
-      }
+      assert.ok(contrastWithWhite(c.primary) >= MIN_CONTRAST, `${a} @ ${h}: white text unreadable`);
     }
   }
 });
