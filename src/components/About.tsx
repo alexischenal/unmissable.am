@@ -22,8 +22,8 @@ export function About() {
 
       <h2 className="article__subtitle">Step one: blowout or close game?</h2>
       <p className="article__text">
-        Blowouts start at 0% and can never go above 49%. Scoring 80 in a blowout is still a blowout, so it
-        stays there. For those big performances, we have{' '}
+        Blowouts start at 0% and can never go above 49%. Scoring 80 in a blowout is still a blowout, but it
+        gets{' '}
         {/* "a", the flame and "!" stay on the same line */}
         <span className="article__nowrap">
           a{' '}
@@ -53,7 +53,8 @@ export function About() {
       </h2>
       <p className="article__text">
         A flame next to a percentage means somebody cooked. Tap it to see how hot: a big, a huge or a crazy
-        performance. That's all it says, no spoilers.
+        performance. And when several players cook in the same game, you'll see each of them. That's all it
+        says, no spoilers.
       </p>
 
       <h2 className="article__subtitle">Good to know – the math</h2>
