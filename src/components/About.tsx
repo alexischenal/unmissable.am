@@ -52,7 +52,7 @@ export function About() {
         Good to know – the <Flame />
       </h2>
       <p className="article__text">
-        A flame next to a percentage means somebody lit it up. Tap it to see the level: a big, a huge or a crazy
+        A flame next to a percentage means somebody cooked. Tap it to see the level: a big, a huge or a crazy
         performance. That's all it says, no spoilers.
       </p>
 
