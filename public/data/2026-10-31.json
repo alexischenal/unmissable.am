@@ -9,6 +9,15 @@
       "note": 71
     },
     {
+      "away": "MIN",
+      "home": "SAS",
+      "tipOff": "2026-11-01T00:00:00Z",
+      "note": 63,
+      "why": {
+        "big": 1
+      }
+    },
+    {
       "away": "CLE",
       "home": "MIL",
       "tipOff": "2026-11-01T00:00:00Z",
@@ -25,11 +34,6 @@
       "home": "UTA",
       "tipOff": "2026-10-31T19:00:00Z",
       "note": 1
-    },
-    {
-      "away": "MIN",
-      "home": "SAS",
-      "tipOff": "2026-11-01T00:00:00Z"
     },
     {
       "away": "SAC",
