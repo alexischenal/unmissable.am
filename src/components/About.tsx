@@ -23,8 +23,7 @@ export function About() {
 
       <h2 className="article__subtitle">Step one: blowout or close game?</h2>
       <p className="article__text">
-        Blowouts start at 0% and can never go above 49%. Even a crazy night won't lift a blowout above 49%, but
-        it gets{' '}
+        Blowouts start at 0% and can never go above 49%, even with a crazy night. But that night gets{' '}
         {/* "a", the flame and "!" stay on the same line */}
         <span className="article__nowrap">
           a{' '}
